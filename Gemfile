@@ -1,10 +1,12 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
-gem 'mongoid'
+gem 'mysql'
 
 gem 'capistrano'
 
+gem 'devise'
+gem 'rdiscount'
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
