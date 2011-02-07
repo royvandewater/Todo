@@ -7,8 +7,31 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="wrapper">
+    <div id="nav">
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <% unless user_signed_in? -%>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+        <% else -%>
+          <li><%= link_to "Sign out", destroy_user_session_path %></li>
+        <% end -%>
+        <li><%= link_to "New todo list", new_todo_list_path %></li>
+      </ul>
+      <div class="clearboth"></div>
+    </div>
 
-<%= yield %>
+    <div id="content">
+      <% if notice.present? -%>
+        <p class="notice"><%= notice %></p>
+      <% end -%>
 
+      <% if alert.present? -%>
+        <p class="alert"><%= alert %></p>
+      <% end -%>
+
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
